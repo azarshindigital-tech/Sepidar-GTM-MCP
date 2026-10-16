@@ -1,0 +1,14 @@
+# Local dev values (copy to `.dev.vars`). In production use Runtime secrets.
+
+MCP_AUTH_TOKEN="choose-a-long-random-alphanumeric-string"
+
+# Google OAuth — the refresh token needs the Tag Manager scope
+# (https://www.googleapis.com/auth/tagmanager.readonly)
+GOOGLE_CLIENT_ID="xxxxxxxx.apps.googleusercontent.com"
+GOOGLE_CLIENT_SECRET="GOCSPX-xxxxxxxx"
+GOOGLE_REFRESH_TOKEN="1//xxxxxxxx"
+
+# Optional defaults so you don't pass them on every call.
+# Find them with list_gtm_accounts / list_containers.
+GTM_DEFAULT_ACCOUNT_ID=""
+GTM_DEFAULT_CONTAINER_ID=""

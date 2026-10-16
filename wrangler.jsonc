@@ -1,0 +1,27 @@
+{
+  // Separate Google Tag Manager MCP Worker.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sepidar-gtm-mcp",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  "durable_objects": {
+    "bindings": [
+      { "name": "MCP_OBJECT", "class_name": "TagManagerMCP" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["TagManagerMCP"] }
+  ],
+
+  "observability": { "enabled": true }
+
+  // RUNTIME secrets (Settings -> Variables and Secrets, NOT Builds):
+  //   MCP_AUTH_TOKEN
+  //   GOOGLE_CLIENT_ID
+  //   GOOGLE_CLIENT_SECRET
+  //   GOOGLE_REFRESH_TOKEN        (scope: tagmanager.readonly)
+  //   GTM_DEFAULT_ACCOUNT_ID      (optional, so you don't pass it every time)
+  //   GTM_DEFAULT_CONTAINER_ID    (optional)
+}
